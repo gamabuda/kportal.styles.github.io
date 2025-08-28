@@ -1,0 +1,594 @@
+.floating-stack {
+  color: #000;
+  height: 300px;
+  min-width: 250px;
+  overflow-y: auto;
+    height: 100%;
+  border-right: solid 2px #f3f3f3;
+}
+
+.floating-stack > dl {
+  padding: 0.5rem;
+  gap: 0.5rem 0;
+  margin: 0 0 1rem;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: start; /* Изменили на start для верхнего выравнивания */
+}
+
+.floating-stack dt {
+  position: sticky;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-weight: bold;
+  background: transparent;
+  color: #cfd8dc;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  padding: 0.5rem 0;
+  grid-column: 1;
+  display: flex; /* Используем flex для точного контроля выравнивания */
+  align-items: flex-start; /* Выравнивание вверху */
+  justify-content: center; /* Центрируем текст по горизонтали */
+  box-sizing: border-box;
+}
+
+.floating-stack dd {
+	height: 100%;
+  grid-column: 2;
+  margin: 0;
+  position: relative;
+  padding: 0.25rem 0;
+    user-select: none;       /* отключает выделение текста */
+  -webkit-user-select: none; /* для Safari/старых Chrome */
+  -ms-user-select: none;     /* для старых IE/Edge */
+
+}
+
+.floating-stack dd:hover{
+	/* background-color: aqua; */
+}
+
+.floating-stack dd.collapsible {
+  cursor: pointer;
+}
+
+.floating-stack dd.titledd{
+	font-weight: 600;
+  transition: color 0.3s ease;
+  color: #000;
+}
+
+.floating-stack dd.titledd:hover{
+  color:var(--bg--primary);
+}
+
+.floating-stack dd ul.nested-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.floating-stack dd ul.nested-list.active {
+  max-height: 200px; /* Достаточная высота для всех элементов, можно настроить */
+}
+
+.floating-stack dd ul.nested-list li {
+  padding: 0.25rem 0;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.floating-stack dd ul.nested-list li:hover{
+  color: var(--bg--primary);
+}
+
+/* .floating-stack > dl:first-of-type > dd:first-of-type {
+margin-top: 0.25rem;
+} */
+
+/* From Uiverse.io by hannahyockel */ 
+.btn-group-add {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ border: 0px solid transparent;
+ background-color: #f3f3f3;;
+ border-radius: 0.8em;
+ transition: all 0.2s linear;
+ margin-right: 0.5rem;
+}
+
+/* .btn-group-add:hover {
+ box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
+  8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
+  17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
+  36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
+  99px 72px 143px rgba(0, 0, 0, 0.08);
+} */
+
+
+/* tabs  */
+
+/*
+ CSS for the main interaction
+*/
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+/*
+ Styling
+*/
+
+.d-flex{
+	display: flex;
+}
+
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.5rem 0.5rem;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+      left: 10px;
+    bottom: 5px;
+  width: 33%;
+  height: 3px;
+  background: #8d8d8d;
+}
+
+input:focus-visible + label {
+  outline: 2px solid var(--bg--primary);
+  border-radius: 3px;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label,
+.tabset > input:checked + label {
+  color: var(--bg--primary);
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: var(--bg--primary);
+}
+
+.tabset > input:checked + label {
+  /* border-color: #ccc;
+  border-bottom: 1px solid #fff; */
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 1rem 0.5rem;
+  border-top: 2px solid #f3f3f3;
+}
+
+.tabset {
+  width: 100%; 
+  padding: 0 0.5rem;
+}
+
+.rule-card-list {
+	display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+	gap: 0.2rem;
+}
+
+.rule-card-title{
+	align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+	font-weight: 600;
+	    justify-content: space-between;
+}
+
+.rule-card-description{
+	font-size: 14px;
+}
+
+.rule-card-separator{
+	    border-top: thin solid 2px;
+    height: 1px;
+    width: 100%;
+}
+
+.toggler {
+  width: 72px;
+}
+
+.toggler input {
+  display: none;
+}
+
+.toggler label {
+  display: block;
+  position: relative;
+  width: 3rem;
+    height: 1.5rem;
+  border: 1px solid #d6d6d6;
+  border-radius: 36px;
+  background: #e4e8e8;
+  cursor: pointer;
+}
+
+.toggler label::after {
+  display: block;
+  border-radius: 100%;
+  background-color: #d7062a;
+  content: '';
+  animation-name: toggler-size;
+  animation-duration: 0.15s;
+  animation-timing-function: ease-out;
+  animation-direction: forwards;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+}
+
+.toggler label::after, .toggler label .toggler-on, .toggler label .toggler-off {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 1.2rem;
+    height: 1.2rem;
+  transform: translateY(-50%) translateX(-50%);
+  transition: left 0.15s ease-in-out, background-color 0.2s ease-out, width 0.15s ease-in-out, height 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.toggler input:checked + label::after, .toggler input:checked + label .toggler-on, .toggler input:checked + label .toggler-off {
+  left: 75%;
+}
+
+.toggler input:checked + label::after {
+  background-color: #50ac5d;
+  animation-name: toggler-size2;
+}
+
+.toggler .toggler-on, .toggler .toggler-off {
+  opacity: 1;
+  z-index: 2;
+}
+
+.toggler input:checked + label .toggler-off, .toggler input:not(:checked) + label .toggler-on {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggler .path {
+  fill: none;
+  stroke: #fefefe;
+  stroke-width: 7px;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+@keyframes toggler-size {
+  0%, 100% {
+    width: 26px;
+    height: 26px;
+  }
+
+  50% {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@keyframes toggler-size2 {
+  0%, 100% {
+    width: 26px;
+    height: 26px;
+  }
+
+  50% {
+    width: 20px;
+    height: 20px;
+  }
+}
+ 
+
+/* btn group */
+
+dt:has(+ dd) {
+  transition: background 0.5s ease, transform 0.5s ease;
+}
+
+dt:has(+ dd:hover) {
+  background: #f3f3f3;
+  transform: scale(1.02);
+}
+
+.input-form{
+    background-color: #f3f3f3;
+    border-radius: var(--brad-outer);
+}
+
+.input-form-field{
+  color: #000;
+  background-color: transparent;
+    outline: none;
+    width: 100%;
+    border: 0;
+    padding: 0.5em ;
+    font-size: 1em;
+}
+
+.group-settings-block{
+      padding: 0.5rem 0;
+}
+
+.separator{
+  height: 2px;
+  background-color: #8d8d8d;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.separator-text{
+  display: flex;
+  gap: 0.2rem;
+  position: absolute;
+  left: 25px;
+    padding: 0 0.5rem;
+    font-weight: 600;
+    background-color: #fff;
+    top: -12px;
+    color: #000000;
+     transition: color 0.3s ease;
+}
+
+.group-settings-block:hover .separator-text{
+  color: var(--bg--primary);
+}
+
+.group-settings-block:hover .separator{
+  background-color: var(--bg--primary);
+}
+
+.text-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Элемент списка выглядит как обычная строка текста */
+.text-list__item {
+  position: relative;
+  padding: var(--pad-y) 0; /* без «карточности» */
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  border-bottom: 1px solid #eee;
+  outline: none; /* управляем фокусом сами */
+  padding: 0.5rem 0;
+}
+
+.text-list__item:last-child {
+  border-bottom: 1px solid transparent;
+}
+
+.text-list__item:hover {
+  background: var(--hover);
+}
+
+/* Текстовая часть тянется, чтобы actions прилипали вправо */
+.text-list__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-list__label:hover{
+  color:var(--bg--primary);
+  cursor: pointer;
+}
+
+/* Кнопки справа, скрыты до hover/focus */
+.text-list__actions {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;           /* не мешаем кликам по тексту */
+  transition: opacity .15s ease, transform .15s ease;
+  transform-origin: right center;
+  will-change: opacity, transform;
+}
+
+.text-list__actions svg{
+  fill: var(--bg--primary);
+  inline-size: var(--svg);
+  block-size: var(--svg);
+}
+
+.text-list__item:hover .text-list__actions,
+.text-list__item:focus-within .text-list__actions {
+  opacity: 1;
+  pointer-events: auto;           /* активируем кнопки */
+}
+
+/* Доступность: видимая индикация фокуса строки */
+.text-list__item:focus-visible {
+  box-shadow: var(--ring);
+  border-radius: var(--radius);
+  background: var(--hover);
+}
+
+/* Стиль «призрачных» кнопок */
+.btn {
+  font: inherit;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 4px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .15s ease, border-color .15s ease, transform .06s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn--ghost {
+  color: var(--muted);
+}
+
+.btn--ghost:hover {
+  background: #e5e7eb;
+  color: #111827;
+  border-color: #e5e7eb;
+}
+
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { box-shadow: var(--ring); outline: none; }
+
+/* Прячем подпись на очень узких экранах — остаются эмодзи-иконки */
+@media (max-width: 420px) {
+  .btn__text { display: none; }
+}
+
+/* color picker  */
+
+.green-bg {
+  background-color: #0da58e;
+}
+.lightgreen-bg {
+  background-color: #8cc152;
+}
+.lime-bg {
+  background-color: #cdda49;
+}
+.yellow-bg {
+  background-color: #fdc02f;
+}
+.orange-bg {
+  background-color: #fd9727;
+}
+.deeporange-bg {
+  background-color: #fc5830;
+}
+.red-bg {
+  background-color: #e2202c;
+}
+.pink-bg {
+  background-color: #e62565;
+}
+.purple-bg {
+  background-color: #9b2fae;
+}
+.deeppurple-bg {
+  background-color: #673fb4;
+}
+.blue-bg {
+  background-color: #4054b2;
+}
+.lightblue-bg {
+  background-color: #587bf8;
+}
+.colorpicker {
+  font-size: 0;
+  padding: 0;
+}
+.colorpicker li {
+  display: inline-block;
+  width: 8.33333333%;
+  height: 50px;
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+}
+.colorpicker li span {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  padding-top: 11px;
+  pointer-events: none;
+}
+.colorpicker li span:before {
+  opacity: 0;
+}
+.colorpicker li.selected span:before {
+  opacity: 1;
+}
+.colorpicker li:hover span:before {
+  opacity: 0.5;
+}
+.colorpicker li {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: 20px;
+  line-height: 1;
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.colorpicker li:after {
+  transition: left 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.2s 1s;
+  content: "";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  left: 120%;
+  top: 0;
+  opacity: 0;
+  line-height: 50px;
+  content: "\f00c";
+}
+.colorpicker li.active:after {
+  left: 0;
+  opacity: 1;
+  transition: left 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.2s;
+}
+.colorpicker li.active ~ li:after {
+  left: -80%;
+}

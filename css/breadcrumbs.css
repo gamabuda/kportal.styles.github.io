@@ -1,0 +1,91 @@
+a:link {
+    text-decoration: none;
+}
+
+ol {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:link {
+    touch-action: manipulation;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+.o-inline-svg-icon {
+    stroke: currentColor;
+}
+
+.o-inline-svg-icon--baseline {
+    position: relative;
+    top: 0.125em;
+    width: 1em;
+    height: 1em;
+}
+
+.c-navigation-breadcrumbs__directory {
+    display: flex;
+}
+
+.c-navigation-breadcrumbs__link svg{
+    fill: var(--bg--primary);
+}
+
+.c-navigation-breadcrumbs__link:link {
+    color: var(--bg--primary) !important;
+}
+
+.c-navigation-breadcrumbs__link:link:hover {
+    background-image: linear-gradient(currentColor, currentColor);
+    color: var(--bg--hover);
+    background-size: auto 1px;
+    background-repeat: repeat-x;
+    background-position: 0 calc(50% + 1ex);
+}
+
+@media (max-width: 500px) {
+    .c-navigation-breadcrumbs__item:not(:nth-last-child(2)) {
+        display: none;
+    }
+
+    .c-navigation-breadcrumbs__link:before {
+        display: inline-block;
+        content: '\200b';
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23007c89' stroke-width='2' stroke-linecap='round' stroke-linejoin='round%5C'%3E%3Cline x1='19' y1='12' x2='5' y2='12'%3E%3C/line%3E%3Cpolyline points='12 19 5 12 12 5'%3E%3C/polyline%3E%3C/svg%3E") center / 16px 16px no-repeat;
+        width: 16px;
+    }
+}
+
+@media (min-width: 501px) {
+    .c-navigation-breadcrumbs__item:nth-last-child(n+2):after {
+        display: inline-block;
+        content: '\200b';
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23767676' stroke-width='2' stroke-linecap='round' stroke-linejoin='round%5C'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E") center / 16px 16px no-repeat;
+        width: 16px;
+        margin: 0 8px;
+    }
+
+    .c-navigation-breadcrumbs__link {
+        display: block;
+        float: left;
+    }
+}
+
+.u-visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
