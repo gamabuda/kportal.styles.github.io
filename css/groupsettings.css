@@ -592,3 +592,19 @@ dt:has(+ dd:hover) {
 .colorpicker li.active ~ li:after {
   left: -80%;
 }
+
+.groupsettings-container{
+  display: flex; 
+}
+
+@media (max-width: 768px) {
+  .groupsettings-container {
+     display: flex;
+     flex-direction: column;
+  }
+  
+  .floating-stack > dl{
+    height: 120px !important;
+    overflow-y: auto;
+  }
+}
