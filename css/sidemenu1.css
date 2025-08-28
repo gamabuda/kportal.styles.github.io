@@ -202,10 +202,10 @@ figcaption {
     color: var(--gray--primary);
     transition: color 200ms ease-in;
 }
-
+/* 
 .sidebar__list:has(.sidebar__link):hover .sidebar__item--heading {
     color: var(--gray--secondary);
-}
+} */
 
 .sidebar__link {
     display: flex;
@@ -260,7 +260,7 @@ figcaption {
     background-color: var(--bg--active);
 }
 
-aside:not(:has(:checked)) .toggle--open,
+/* aside:not(:has(:checked)) .toggle--open,
 aside:has(:checked) .toggle--close {
     opacity: 0;
 }
@@ -271,7 +271,7 @@ aside:not(:has(:checked)) :where(figcaption, .item--heading) {
 
 aside:has(:checked) :where(figcaption, .item--heading) {
     transition: opacity 300ms ease-in 200ms;
-}
+} */
 
 [data-tooltip]::before {
     content: attr(data-tooltip);
@@ -291,9 +291,38 @@ aside:has(:checked) :where(figcaption, .item--heading) {
     transition: all 350ms ease-out;
 }
 
-aside:not(:has(:checked))
+/* aside:not(:has(:checked))
     .sidebar__link:where(:hover, :focus-visible)[data-tooltip]::before {
     opacity: 1;
     scale: 1;
+} */
+
+/* при checked сайдбар развёрнут */
+#checkbox-input:checked ~ nav {
+    flex-basis: var(--expanded);
 }
 
+/* при unchecked сайдбар свёрнут */
+#checkbox-input:not(:checked) ~ nav {
+    flex-basis: var(--collapsed);
+}
+
+/* показываем нужную иконку */
+#checkbox-input:checked ~ nav .toggle--open {
+    opacity: 0; /* крестик прячем */
+}
+#checkbox-input:not(:checked) ~ nav .toggle--close {
+    opacity: 0; /* бургер прячем */
+}
+
+/* прячем текст и заголовки, если меню свернуто */
+#checkbox-input:not(:checked) ~ nav figcaption,
+#checkbox-input:not(:checked) ~ nav .item--heading {
+    opacity: 0;
+    pointer-events: none; /* чтобы не мешало кликам */
+}
+#checkbox-input:checked ~ nav figcaption,
+#checkbox-input:checked ~ nav .item--heading {
+    opacity: 1;
+    transition: opacity 300ms ease-in 200ms;
+}
